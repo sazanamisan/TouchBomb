@@ -34,199 +34,33 @@ window.onload = function(){
    	 }
 	});
 	//îöíe
-	BOMB1 = enchant.Class.create(enchant.Sprite,{
-	initialize: function(_x, type){
-		enchant.Sprite.call(this, 16,16);
-		this.x = _x; this.y = 150;
-		this.image = game.assets['icon0.gif'];
-		this.frame =25;
-		this.scaleX = 1.5;
-		this.scaleY = 1.5;
-		this.addEventListener(Event.ENTER_FRAME, function () {
-		this.x +=1;
-		});
 
-		this.addEventListener(Event.TOUCH_START, function(e){
-		blast = new Blast1(e.x, e.y);
-		this.remove();
-		});
-		game.rootScene.addChild(this);
-		},
-		remove: function () {
-			game.rootScene.removeChild(this);
+    Bomb =  enchant.Class.create(enchant.Sprite,{
+            initialize: function(x, y, dx, dy){
+                enchant.Sprite.call(this, 16,16);
+                this.x = x;
+                this.y = y;
+                this.image = game.assets['icon0.gif'];
+                this.frame =25;
+                this.scaleX = 1.5;
+                this.scaleY = 1.5;
+                this.addEventListener(Event.TOUCH_START, function(e){
+                        blast = new Blast1(e.x, e.y);
+                        this.remove();
+                    });
+
+                game.rootScene.addChild(this);
+
+                this.addEventListener(Event.ENTER_FRAME, function(){
+                        this.moveBy(dx, dy);
+                    });
+            },
+
+            remove: function () {
+                game.rootScene.removeChild(this);
 			}
-		});
-		
-		//îöíe
-	BOMB2 = enchant.Class.create(enchant.Sprite,{
-	initialize: function(_x, type2){
-		enchant.Sprite.call(this, 16,16);
-		this.x = _x; this.y = 150;
-		this.image = game.assets['icon0.gif'];
-		this.frame =25;
-		this.scaleX = 1.5;
-		this.scaleY = 1.5;
-		this.addEventListener(Event.ENTER_FRAME, function () {
-		this.x -=1;
-		});
+        });
 
-		this.addEventListener(Event.TOUCH_START, function(e){
-		blast = new Blast1(e.x, e.y);
-		this.remove();
-		});
-		game.rootScene.addChild(this);
-		},
-		remove: function () {
-			game.rootScene.removeChild(this);
-			}
-		});
-
-		//îöíe
-	BOMB3 = enchant.Class.create(enchant.Sprite,{
-	initialize: function(_x, type3){
-		enchant.Sprite.call(this, 16,16);
-		this.x = _x; this.y = 0;
-		this.image = game.assets['icon0.gif'];
-		this.frame =25;
-		this.scaleX = 1.5;
-		this.scaleY = 1.5;
-		this.addEventListener(Event.ENTER_FRAME, function () {
-		this.y +=1;
-		});
-
-		this.addEventListener(Event.TOUCH_START, function(e){
-		blast = new Blast1(e.x, e.y);
-		this.remove();
-		});
-		game.rootScene.addChild(this);
-		},
-		remove: function () {
-			game.rootScene.removeChild(this);
-			}
-		});
-		
-		//îöíe
-	BOMB4 = enchant.Class.create(enchant.Sprite,{
-	initialize: function(_x, type4){
-		enchant.Sprite.call(this, 16,16);
-		this.x = _x; this.y = 300;
-		this.image = game.assets['icon0.gif'];
-		this.frame =25;
-		this.scaleX = 1.5;
-		this.scaleY = 1.5;
-		this.addEventListener(Event.ENTER_FRAME, function () {
-		this.y -=1;
-		});
-
-		this.addEventListener(Event.TOUCH_START, function(e){
-		blast = new Blast1(e.x, e.y);
-		this.remove();
-		});
-		game.rootScene.addChild(this);
-		},
-		remove: function () {
-			game.rootScene.removeChild(this);
-			}
-		});
-		
-		//îöíe
-	BOMB5 = enchant.Class.create(enchant.Sprite,{
-	initialize: function(_x, type5){
-		enchant.Sprite.call(this, 16,16);
-		this.x = _x; this.y = 300;
-		this.image = game.assets['icon0.gif'];
-		this.frame =25;
-		this.scaleX = 1.5;
-		this.scaleY = 1.5;
-		this.addEventListener(Event.ENTER_FRAME, function () {
-		this.x +=1;
-		this.y -=1;
-		});
-
-		this.addEventListener(Event.TOUCH_START, function(e){
-		blast = new Blast1(e.x, e.y);
-		this.remove();
-		});
-		game.rootScene.addChild(this);
-		},
-		remove: function () {
-			game.rootScene.removeChild(this);
-			}
-		});		
-		
-		//îöíe
-	BOMB6 = enchant.Class.create(enchant.Sprite,{
-	initialize: function(_x, type6){
-		enchant.Sprite.call(this, 16,16);
-		this.x = 0; this.y = 0;
-		this.image = game.assets['icon0.gif'];
-		this.frame =25;
-		this.scaleX = 1.5;
-		this.scaleY = 1.5;
-		this.addEventListener(Event.ENTER_FRAME, function () {
-		this.x +=1;
-		this.y +=1;
-		});
-
-		this.addEventListener(Event.TOUCH_START, function(e){
-		blast = new Blast1(e.x, e.y);
-		this.remove();
-		});
-		game.rootScene.addChild(this);
-		},
-		remove: function () {
-			game.rootScene.removeChild(this);
-			}
-		});
-		//îöíe
-	BOMB7 = enchant.Class.create(enchant.Sprite,{
-	initialize: function(_x, type7){
-		enchant.Sprite.call(this, 16,16);
-		this.x = 310; this.y = 0;
-		this.image = game.assets['icon0.gif'];
-		this.frame =25;
-		this.scaleX = 1.5;
-		this.scaleY = 1.5;
-		this.addEventListener(Event.ENTER_FRAME, function () {
-		this.x -=1;
-		this.y +=1;
-		});
-
-		this.addEventListener(Event.TOUCH_START, function(e){
-		blast = new Blast1(e.x, e.y);
-		this.remove();
-		});
-		game.rootScene.addChild(this);
-		},
-		remove: function () {
-			game.rootScene.removeChild(this);
-			}
-		});
-		
-		//îöíe
-	BOMB8 = enchant.Class.create(enchant.Sprite,{
-	initialize: function(_x, type8){
-		enchant.Sprite.call(this, 16,16);
-		this.x = 305; this.y = 300;
-		this.image = game.assets['icon0.gif'];
-		this.frame =25;
-		this.scaleX = 1.5;
-		this.scaleY = 1.5;
-		this.addEventListener(Event.ENTER_FRAME, function () {
-		this.x -=1;
-		this.y -=1;
-		});
-
-		this.addEventListener(Event.TOUCH_START, function(e){
-		blast = new Blast1(e.x, e.y);
-		this.remove();
-		});
-		game.rootScene.addChild(this);
-		},
-		remove: function () {
-			game.rootScene.removeChild(this);
-			}
-		});		
 		//Ç≠Ç‹
 		Bear = enchant.Class.create(enchant.Sprite,{
 	initialize: function(_x, type){
@@ -242,22 +76,16 @@ window.onload = function(){
 	var bg = new Sprite (320,320);
 	bg.image = game.assets['images/haikei.png'];
 	game.rootScene.addChild(bg);
-	var w1 = 0;
-	new BOMB1(w1);
-	var w2 = 310;
-	new BOMB2(w2);
-	var x1 = 155;
-	new BOMB3(x1);
-	var x2 = 155;
-	new BOMB4(x2);
-	var y1 = 0;
-	new BOMB5(y1);
-	var y2 = 0;
-	new BOMB6(y2);
-	var z1 = 0;
-	new BOMB7(z1);
-	var z2 = 0;
-	new BOMB8(z2);
+
+    new Bomb(0, 150, 1, 0);
+    new Bomb(310, 150, -1, 0);
+    new Bomb(155, 150, 0, 1);
+    new Bomb(155, 300, 0, -1);
+    new Bomb(0, 300, 1, -1);
+    new Bomb(0, 0, 1, 1);
+    new Bomb(310, 0, -1, 1);
+    new Bomb(305, 300, -1, -1);
+
 	var q = 160;
 	new Bear(q);
 	/*//ÉQÅ[ÉÄÉIÅ[ÉoÅ[
